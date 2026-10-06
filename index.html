@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitZone | Gym & Fitness</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FIT<span>ZONE</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#tools">Fitness Tools</a>
+            <a href="#workouts">Workouts</a>
+            <a href="#diet">Diet</a>
+            <a href="#fitness-plan">My Plan</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO FITZONE</p>
+
+            <h1>
+                BUILD YOUR
+                <span>BEST VERSION</span>
+            </h1>
+
+            <p>
+                Train smarter. Eat better. Track your progress.
+                Your fitness journey starts here.
+            </p>
+
+            <a href="#tools" class="hero-btn">
+                START YOUR JOURNEY →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features" id="tools">
+
+        <h2>FITNESS <span>TOOLS</span></h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="icon">⚖️</div>
+
+                <h3>BMI Calculator</h3>
+
+                <p>
+                    Check your BMI and understand your
+                    current weight category.
+                </p>
+
+                <button onclick="showBMI()">
+                    Calculate BMI
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🔥</div>
+
+                <h3>Calories</h3>
+
+                <p>
+                    Estimate calories burned during
+                    your workout.
+                </p>
+
+                <button onclick="showCalories()">
+                    Calculate Calories
+                </button>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">💪</div>
+
+                <h3>Exercises</h3>
+
+                <p>
+                    Find exercises based on your
+                    target muscle.
+                </p>
+
+                <button onclick="showExercises()">
+                    Explore Exercises
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BMI -->
+
+    <section class="calculator" id="bmi-section">
+
+        <h2>BMI <span>CALCULATOR</span></h2>
+
+        <div class="calculator-box">
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Weight (kg)"
+            >
+
+            <input
+                type="number"
+                id="height"
+                placeholder="Height (cm)"
+            >
+
+            <button onclick="calculateBMI()">
+                CALCULATE BMI
+            </button>
+
+            <div id="bmi-result"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALORIES -->
+
+    <section class="calculator">
+
+        <h2>CALORIE <span>CALCULATOR</span></h2>
+
+        <div class="calculator-box">
+
+            <input
+                type="number"
+                id="cal-weight"
+                placeholder="Weight (kg)"
+            >
+
+            <input
+                type="number"
+                id="duration"
+                placeholder="Duration (minutes)"
+            >
+
+            <select id="activity">
+
+                <option value="walking">Walking</option>
+
+                <option value="running">Running</option>
+
+                <option value="cycling">Cycling</option>
+
+                <option value="weightlifting">
+                    Weightlifting
+                </option>
+
+            </select>
+
+            <button onclick="calculateCalories()">
+                CALCULATE
+            </button>
+
+            <div id="calorie-result"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WORKOUTS -->
+
+    <section class="workouts" id="workouts">
+
+        <h2>CHOOSE YOUR <span>GOAL</span></h2>
+
+        <div class="goal-grid">
+
+            <div class="goal-card">
+
+                <h3>🔥 WEIGHT LOSS</h3>
+
+                <p>
+                    Burn calories and improve your
+                    overall fitness.
+                </p>
+
+                <button onclick="getWorkout('weight-loss')">
+                    VIEW WORKOUT
+                </button>
+
+            </div>
+
+
+            <div class="goal-card">
+
+                <h3>💪 MUSCLE GAIN</h3>
+
+                <p>
+                    Build strength and develop
+                    lean muscle.
+                </p>
+
+                <button onclick="getWorkout('muscle-gain')">
+                    VIEW WORKOUT
+                </button>
+
+            </div>
+
+
+            <div class="goal-card">
+
+                <h3>🌱 BEGINNER</h3>
+
+                <p>
+                    Start your fitness journey
+                    with simple exercises.
+                </p>
+
+                <button onclick="getWorkout('beginner')">
+                    VIEW WORKOUT
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="workout-result"></div>
+
+    </section>
+
+
+    <!-- DIET -->
+
+    <section class="diet" id="diet">
+
+        <h2>SMART <span>DIET PLANS</span></h2>
+
+        <div class="diet-buttons">
+
+            <button onclick="getDiet('weight-loss')">
+                WEIGHT LOSS
+            </button>
+
+            <button onclick="getDiet('muscle-gain')">
+                MUSCLE GAIN
+            </button>
+
+            <button onclick="getDiet('beginner')">
+                BEGINNER
+            </button>
+
+        </div>
+
+        <div id="diet-result"></div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+     <!-- FITNESS PLAN -->
+
+<section class="fitness-plan" id="fitness-plan">
+
+    <h2>CREATE YOUR <span>FITNESS PLAN</span></h2>
+
+    <p class="section-description">
+        Enter your details and get a personalized workout
+        and diet plan.
+    </p>
+
+    <div class="plan-container">
+
+        <div class="plan-form">
+
+            <input
+                type="number"
+                id="plan-age"
+                placeholder="Age"
+            >
+
+            <input
+                type="number"
+                id="plan-weight"
+                placeholder="Weight (kg)"
+            >
+
+            <input
+                type="number"
+                id="plan-height"
+                placeholder="Height (cm)"
+            >
+
+            <select id="plan-goal">
+
+                <option value="beginner">
+                    Beginner
+                </option>
+
+                <option value="muscle-gain">
+                    Muscle Gain
+                </option>
+
+                <option value="weight-loss">
+                    Weight Loss
+                </option>
+
+            </select>
+
+            <select id="plan-activity">
+
+                <option value="low">
+                    Low Activity
+                </option>
+
+                <option value="moderate">
+                    Moderate Activity
+                </option>
+
+                <option value="high">
+                    High Activity
+                </option>
+
+            </select>
+
+            <button onclick="createFitnessPlan()">
+                CREATE MY PLAN →
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="fitness-plan-result"></div>
+
+</section>
+
+    <footer>
+
+        <h2>FIT<span>ZONE</span></h2>
+
+        <p>
+            Train Hard. Stay Strong. Keep Going.
+        </p>
+
+        <p class="copyright">
+            Gym & Fitness API • Powered by FastAPI
+        </p>
+
+    </footer>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
